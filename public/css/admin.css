@@ -1,0 +1,59 @@
+.ctn-all {
+    background-color: white;    
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.ctn-l {
+    background: linear-gradient(135deg, #efea47 0%, #e0e0e0 100%);
+    margin-top: 0;
+    height: 100%;
+    width: 20%;
+    padding: 10px 15px;
+}
+
+.ctn-l h2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctn-l li{
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctn-l li a{ 
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ctn-r{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-color{
+    color: red;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+.active {
+    background-color: rgba(0, 0, 255, 0.2); /* Color de fondo para el estado activo */
+}
