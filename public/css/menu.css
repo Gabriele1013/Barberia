@@ -8,37 +8,6 @@ html, body {
     box-sizing: border-box; /* Evitar que el padding o bordes excedan el ancho */
 }
 
-/* Estilos del Navbar */
-.navbar {
-    background-color: #fedf9c;
-    height: 70px;
-    color: rgb(0, 0, 0);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    box-sizing: border-box; /* Evita que se desborde */
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar ul li {
-    display: inline-block;
-    margin-left: 15px;
-}
-
-.navbar ul li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-weight: bold;
-}
-
 /* Estilo para el contenedor principal */
 .main-container {
     background-image: url(https://i.ibb.co/gZPby81/c46c086c-0d27-413a-8cc9-25227cc98290.jpg);
@@ -88,16 +57,4 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-/* Footer */
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    bottom: 0;
 }

@@ -4,20 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\usuarioModelo;
 
 class turnoModelo extends Model
 {
     use HasFactory;
 
     protected $table = 'turno';
-    protected $fillable = ['nombre', 'desc', 'precio', 'empleado_id', 'fecha_inicio', 'fecha_fin', 'estado'];
+    protected $fillable = ['nombre', 'desc', 'precio', 'usuario_id', 'fecha_inicio', 'fecha_fin', 'estado'];
 
     // Relación de muchos a uno
     // Turno solo puede tener un Empleado
     // Empleado puede tener varios Turnos
-    public function empleado()
+    public function usuario()
     {
-        return $this->belongsTo(empleado::class, 'empleado_id');
+        return $this->belongsTo(usuarioModelo::class, 'usuario_id');
     }
 
     // Relación de uno a uno

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal</title>
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/filas.css') }}">
     <style>
         .empleado {
@@ -18,50 +20,7 @@
 <body>
     <header>
         <!-- Navbar -->
-        <nav class="navbar">
-            <h1>BaberíaXYZ</h1>
-            <ul>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Turnos</a></li>
-                <li><a href="#">Productos</a></li>
-                @if(auth()->check() && (auth()->user()->rol_id == 1))
-                <li><a href="{{ route('administracion') }}">Administración</a></li>
-                @endif
-            </ul>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">
-                        @if(auth()->check())
-                        <span class="{{ auth()->user()->rol_id == 1 ? 'empleado' : '' }}">
-                            {{ auth()->user()->nombre . ' ' . auth()->user()->apellido }}
-                        </span>
-                        @else
-                        Acceder
-                        @endif
-                    </a>
-                    <div class="dropdown-content">
-                        @if(auth()->check())
-                        <a href="#">Turnos Asignados</a>
-                        <a href="#">Órdenes</a>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" style="
-                            border: none; 
-                            background: none; 
-                            cursor: pointer; 
-                            padding: 12px 16px; 
-                            width: 100%; 
-                            text-align: left;">
-                                Cerrar Sesión</button>
-                        </form>
-                        @else
-                        <a href="{{ route('login') }}">Iniciar Sesión</a>
-                        <a href="{{ route('registro') }}">Registrarse</a>
-                        @endif
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        @include('partials/navbar')
     </header>
 
     <div class="main-container">
@@ -81,17 +40,18 @@
 
     <!-- Fila de Turnos -->
     <div class="turnos-container">
-        <h2>Turnos</h2>
-        <div class="turnos-row">
-            @foreach ($turnos as $turno)
-            <div class="turno-item">
-                <p>{{ $turno->nombre }}</p>
-                <p>{{ \Carbon\Carbon::parse($turno->fecha_inicio)->format('Y-m-d H:i') }} - {{ \Carbon\Carbon::parse($turno->fecha_fin)->format('Y-m-d H:i') }}</p>
-            </div>
-            @endforeach
-            <a href="#" class="ver-mas">Ver más</a>
+    <h2>Turnos</h2>
+    <div class="turnos-row">
+        @foreach ($turnos as $turno)
+        <div class="turno-item">
+            <p>{{ $turno->nombre }}</p>
+            <p>{{ \Carbon\Carbon::parse($turno->fecha_inicio)->format('Y-m-d H:i') }} - {{ \Carbon\Carbon::parse($turno->fecha_fin)->format('Y-m-d H:i') }}</p>
+            <a href="{{ route('turno.show', $turno->id) }}" class="btn-reservar">Reservar</a>
         </div>
+        @endforeach
+        <a href="#" class="ver-mas">Ver más</a>
     </div>
+</div>
 
     <!-- Fila de Productos -->
     <div class="productos-container">
@@ -108,9 +68,7 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <p>© 2024 Derechos Reservados</p>
-    </footer>
+    @include('partials/footer')
 </body>
 
 </html>

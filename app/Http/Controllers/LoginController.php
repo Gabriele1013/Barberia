@@ -21,8 +21,8 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // Verificar solo en la tabla de usuarios
-        $usuario = usuarioModelo::where('email', $request->email)->first();
+        // Buscar el usuario por correo electronico
+        $usuario = usuarioModelo::where(column: 'email', $request->email)->first();
 
         if ($usuario && Hash::check($request->password, $usuario->password)) {
             // Si las credenciales coinciden con un usuario
@@ -38,6 +38,6 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/'); // O redirige a donde quieras
+        return redirect('/menu'); // Redirige al menu al cerrar sesión
     }
 }

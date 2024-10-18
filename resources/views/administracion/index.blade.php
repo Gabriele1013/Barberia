@@ -66,50 +66,7 @@
 
     <header>
         <!-- Navbar -->
-        <nav class="navbar">
-            <h1>BaberíaXYZ</h1>
-            <ul>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Turnos</a></li>
-                <li><a href="#">Productos</a></li>
-                @if(auth()->check() && (auth()->user()->rol_id == 1))
-                <li><a href="{{ route('administracion') }}">Administración</a></li>
-                @endif
-            </ul>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">
-                        @if(auth()->check())
-                        <span class="{{ auth()->user()->rol_id == 1 ? 'empleado' : '' }}">
-                            {{ auth()->user()->nombre . ' ' . auth()->user()->apellido }}
-                        </span>
-                        @else
-                        Acceder
-                        @endif
-                    </a>
-                    <div class="dropdown-content">
-                        @if(auth()->check())
-                        <a href="#">Turnos Asignados</a>
-                        <a href="#">Órdenes</a>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" style="
-                            border: none; 
-                            background: none; 
-                            cursor: pointer; 
-                            padding: 12px 16px; 
-                            width: 100%; 
-                            text-align: left;">
-                                Cerrar Sesión</button>
-                        </form>
-                        @else
-                        <a href="{{ route('login') }}">Iniciar Sesión</a>
-                        <a href="{{ route('registro') }}">Registrarse</a>
-                        @endif
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        @include('partials/navbar')
     </header>
 
     <div class="ctn-all">
@@ -233,4 +190,8 @@
 </body>
 
 </html>
+@else
+    <script>
+        window.location.href = "{{ route('menu') }}";
+    </script>
 @endif

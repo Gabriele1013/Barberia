@@ -10,7 +10,7 @@ class resenaModelo extends Model
     use HasFactory;
 
     protected $table = 'resena';
-    protected $fillable = ['usuario_id', 'empleado_id', 'stars'];
+    protected $fillable = ['usuario1_id', 'usuario2_id', 'stars'];
 
     public function usuario(){
         return $this->hasOne(usuario::class, 'usuario_id');

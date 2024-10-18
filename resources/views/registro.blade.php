@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Agrega tu CSS aquí -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}"> 
+
     <style>
         .login-link {
             color: #4c78d9;            ;
@@ -18,7 +21,11 @@
         }
     </style>
 </head>
+
 <body>
+
+            <!-- Navbar? -->
+
     <div class="container">
         <h1>Registro de Usuario</h1>
 
@@ -89,5 +96,8 @@
             <button type="submit">Registrar</button>
         </form>
     </div>
+
+            <!-- Footer? -->
+
 </body>
 </html>

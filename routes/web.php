@@ -27,14 +27,15 @@ Route::middleware(['auth'])->group(function () {
 // Ruta para procesar la autenticación
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/menu'); //Redirigir a la interfaz de menú
+})->name('logout');
+
 Route::get('/menu', function () {
     return view('menu');
 })->name('menu');
 
-Route::post('/logout', function () {
-    Auth::logout();
-    return redirect('/login');
-})->name('logout');
 
 Route::post('/menu', [LoginController::class, 'logout'])->name('logout');
 Route::get('/registro', [RegistroController::class, 'create'])->name('registro');
@@ -49,5 +50,7 @@ Route::post('/actualizar-datos', [AdministracionController::class, 'actualizarDa
 Route::group(['prefix' => 'administracion'], function () {
     Route::get('/', [AdministracionController::class, 'index'])->name('administracion');
     Route::get('/empleados', [AdministracionController::class, 'empleados'])->name('administracion.empleados'); // Ruta para empleados
-    // Agrega otras rutas según sea necesario
 });
+
+// Ruta para mostrar el detalle de un turno específico
+Route::get('/turno/{id}', [MenuController::class, 'show'])->name('turno.show');
