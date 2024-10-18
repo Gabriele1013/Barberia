@@ -2,7 +2,7 @@
     <h1>BarberíaXYZ</h1>
     <ul>
         <li><a href="/menu">Menu</a></li>
-        <li><a href="#">Turnos</a></li>
+        <li><a href="{{ route('turno.index') }}">Turnos</a></li>
         <li><a href="#">Productos</a></li>
         @if(auth()->check() && (auth()->user()->rol_id == 1 || auth()->user()->rol_id == 2 || auth()->user()->rol_id == 3 || auth()->user()->rol_id == 4))
             <li><a href="{{ route('administracion') }}">Administración</a></li>

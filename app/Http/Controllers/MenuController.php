@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\turnoModelo;
-use App\Models\productoModelo;
+use App\Models\{turnoModelo, productoModelo, usuarioModelo};
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -26,11 +25,11 @@ class MenuController extends Controller
     }
 
     public function show($id)
-{
-    $turno = turnoModelo::findOrFail($id); // Encuentra el turno por su id o retorna error 404
+    {
+        $turno = turnoModelo::findOrFail($id); // Encuentra el turno por su id o retorna error 404
 
-    return view('turno.show', compact('turno')); // Retorna la vista del turno
-}
+        return view('turno.show', compact('turno')); // Retorna la vista del turno
+    }
 
 
 }

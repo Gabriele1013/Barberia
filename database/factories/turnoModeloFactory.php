@@ -43,7 +43,7 @@ class turnoModeloFactory extends Factory
             'empleado_id' => empleadoModelo::factory(),
             'fecha_inicio' => $startTime->format('Y-m-d H:i:s'), // Formato correcto de fecha y hora
             'fecha_fin' => $endTime->format('Y-m-d H:i:s'),
-            'estado' => $this->faker->randomElement(['Libre', 'Apartado']),
+            'estado' => $this->faker->randomElement(['Disponible', 'Reservado']),
         ];
     }
 }

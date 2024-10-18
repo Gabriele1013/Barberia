@@ -96,7 +96,7 @@
                 <p>Nombres: {{ auth()->user()->nombre }}</p>
                 <p>Apellidos: {{ auth()->user()->apellido }}</p>
                 <p>Correo electrónico: {{ auth()->user()->email }}</p>
-                <p>Télefono: {{ auth()->user()->telefono }}</p>
+                <p>Télefono: {{ auth()->user()->telefono === 'null' ? 'No tiene' : auth()->user()->telefono }}</p>
                 <p>Apodo: {{ auth()->user()->apodo === 'null' ? 'No tiene' : auth()->user()->apodo }}</p>
                 <p>Fecha de nacimiento: {{ auth()->user()->cumple }}</p>
             </div>
@@ -131,7 +131,7 @@
 
     <script>
         document.getElementById("guardarBtn").onclick = function() {
-            var telefonoAntiguo = "{{ auth()->user()->telefono }}";
+            var telefonoAntiguo = "{{ auth()->user()->telefono === 'null' ? 'No tiene' : auth()->user()->telefono }}";
             var apodoAntiguo = "{{ auth()->user()->apodo === 'null' ? 'No tiene' : auth()->user()->apodo }}";
             var telefonoNuevo = document.getElementById("telefono").value;
             var apodoNuevo = document.getElementById("apodo").value;

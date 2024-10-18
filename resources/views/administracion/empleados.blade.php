@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empleados</title>
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/empleados.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 </head>
@@ -19,8 +20,8 @@
     <div class="ctn-all">
         <div class="ctn-l">
             <h2>EMPLEADOS</h2>
-            <li class="mt-20">
-                <a href="{{ route('administracion.empleados') }}" class="active">Empleados</a> <!-- Con clase 'active' -->
+            <li class="mt-20 active">
+                <a href="{{ route('administracion.empleados') }}">Empleados</a> <!-- Con clase 'active' -->
             </li>
             <li class="mt-20">
                 <a href="">Turnos</a>
@@ -57,10 +58,10 @@
                         <td>{{ $empleado->nombre }}</td>
                         <td>{{ $empleado->apellido }}</td>
                         <td>{{ $empleado->email }}</td>
-                        <td>{{ $empleado->telefono }}</td>
+                        <td>{{ $empleado->telefono === 'null' ? 'No tiene' : $empleado->telefono }}</td>
                         <td>{{ $empleado->apodo === 'null' ? 'No tiene' : $empleado->apodo }}</td>
                         <td>{{ $empleado->cumple }}</td>
-                        <td>{{ $empleado->password }}</td> <!-- Mostrar la contraseña -->
+                        <td>{{ Str::limit($empleado->password, 20, '...') }}</td> <!-- Mostrar la contraseña truncada -->
                         <td>{{ $empleado->rol->rol }}</td> <!-- Mostrar el rol del empleado -->
                     </tr>
                 @endforeach

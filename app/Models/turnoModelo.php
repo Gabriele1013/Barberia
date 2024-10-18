@@ -26,6 +26,6 @@ class turnoModelo extends Model
     // Turno Asignado solo puede tener un Turno
     public function turno_asignado()
     {
-        return $this->hasOne(turno_asignado::class, 'turno_asignado_id');
+        return $this->hasOne(turnoAsignadoModelo::class, 'turno_asignado_id');
     }
 }

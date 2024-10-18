@@ -25,7 +25,7 @@ class RegistroController extends Controller
         ]);
 
         // Asignar el rol_id predeterminado a 5
-        $defaultRoleId = 5;
+        $defaultRoleId = 3;
 
         // Crear el nuevo usuario en la base de datos
         usuarioModelo::create([

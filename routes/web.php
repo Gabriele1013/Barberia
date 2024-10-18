@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegistroController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\AdministracionController;
+use App\Http\Controllers\{RegistroController, 
+                            LoginController, 
+                            MenuController, 
+                            AdministracionController,
+                            TurnoController};
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,5 +53,19 @@ Route::group(['prefix' => 'administracion'], function () {
     Route::get('/empleados', [AdministracionController::class, 'empleados'])->name('administracion.empleados'); // Ruta para empleados
 });
 
+// Ruta que apunta a la vista 'turno'
+Route::get('/turno', function () {
+    return view('turno');
+})->name('turno');
+
 // Ruta para mostrar el detalle de un turno específico
 Route::get('/turno/{id}', [MenuController::class, 'show'])->name('turno.show');
+
+Route::get('/turno', [TurnoController::class, 'index'])->name('turno.index');
+
+Route::get('/turno', [TurnoController::class, 'index'])->name('turno.index');
+Route::post('/turno/seleccionar', [TurnoController::class, 'seleccionarUsuario'])->name('turno.seleccionarUsuario');
+Route::get('/turno/reset', [TurnoController::class, 'reset'])->name('turno.reset');
+
+
+Route::get('/turno/{id}', [TurnoController::class, 'show'])->name('turno.show');

@@ -52,8 +52,9 @@
 
 .mt-20{
     margin-top: 20px;
+    padding: 3px 0;
 }
 
 .active {
-    background-color: rgba(0, 0, 255, 0.2); /* Color de fondo para el estado activo */
+    background-color: rgba(94, 255, 0, 0.2); /* Color de fondo para el estado activo */
 }
